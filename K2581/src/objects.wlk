@@ -1,6 +1,11 @@
 
 object alberto {
 var guitarraToca
+
+method guitarraToca(unaGuitarra){
+	guitarraToca = unaGuitarra
+}
+
 method habilidad(){
 	if (guitarraToca.precio() *8 > 100)
 		return 100
@@ -102,7 +107,7 @@ class Cancion{
 	}
 	
 }
-
+/* 
 class Presentacion{
 	var fecha
 	var lugar
@@ -112,3 +117,4 @@ class Lugar{
 	var capacidad
 	
 }
+*/

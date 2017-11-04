@@ -6,6 +6,10 @@ object joaquin {
 	var grupo = "Pimpinela"
 	var habilidad = 20
 	
+	method grupo(){
+		return grupo
+	}
+	
 	method habilidad(presentacion) {
 		if (self.cantaEnGrupo(presentacion))
 			return habilidad + 5
@@ -34,6 +38,10 @@ object lucia {
 	var grupo = "Pimpinela"
 	var habilidad = 70
 	
+	method grupo(){
+		return grupo
+	}
+	
 	method habilidad(presentacion) {
 		if (self.cantaEnGrupo(presentacion)) 
 			return habilidad - 20
@@ -61,7 +69,6 @@ object lucia {
 object luisAlberto {
 
 	var guitarra
-	var habilidad
 	
 	method habilidad(presentacion) {
 		return 100.min(8 * guitarra.valor())
