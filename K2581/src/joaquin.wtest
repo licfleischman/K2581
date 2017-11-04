@@ -1,0 +1,37 @@
+import musico.*
+import Presentacion.*
+import lugar.*
+import Cancion.*
+
+describe "joaquin" {
+
+	test "Joaquin canta el grupo pimpinela, queremos saber si su habilidad es 25"
+	{
+		assert.equals(25, joaquin.habilidad(new Presentacion(new Date(20, 04, 2017), lunaPark, #{
+		joaquin, lucia })))
+	}
+
+	test "Joaquin canta solista, queremos saber si su habilidad es 20" {
+		assert.equals(20, joaquin.habilidad(new Presentacion(new Date(20, 04, 2017), lunaPark, #{
+		joaquin })))
+	}
+
+	test "Joaquin no interpreta bien la canción 'La Familia'" {
+		assert.notThat(joaquin.interpretaBien(new Cancion(264, "Quiero brindar por mi gente sencilla, por el amor brindo por la familia")))
+	}
+
+	test "Joaquin interpreta bien la canción 'Cisne'" {
+		assert.that(joaquin.interpretaBien(new Cancion(312, "Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")))
+	}
+
+	test "Joaquin por la presentación del LunaPark cobra 50" {
+		assert.equals(50, joaquin.cobra(new Presentacion(new Date(20, 04, 2017), lunaPark, #{
+		joaquin, lucia })))
+	}
+
+	test "Joaquin por la presentación en la Trastiendo cobra 100" {
+		assert.equals(100, joaquin.cobra(new Presentacion(new Date(15, 11, 2017), trastienda, #{
+		joaquin })))
+	}
+}
+

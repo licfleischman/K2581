@@ -1,0 +1,37 @@
+import cantantes.*
+import Presentacion.*
+import lugares.*
+import guitarras.*
+
+describe "luisAlberto"{
+		
+	test "Luis Alberto toca con la Fender. Queremos saber su habilidad, y la misma es 80."{
+		luisAlberto.tocarCon(fender)
+		assert.equals(80, luisAlberto.habilidad(new Presentacion(new Date(20, 04, 2017), lunaPark, luisAlberto)))
+	}
+	test "Luis Alberto toca ahora con la Gibson sana. Queremos saber su habilidad, y la misma es 100."{
+		luisAlberto.tocarCon(gibson)
+		assert.equals(100, luisAlberto.habilidad(new Presentacion(new Date(20, 04, 2017), lunaPark, luisAlberto)))
+	}
+	test "Alguien trata mal a la Gibson y ahora no está sana, su habilidad es 40."{
+		luisAlberto.tocarCon(gibson)
+		luisAlberto.tratarMal(gibson)
+		assert.equals(40, luisAlberto.habilidad(new Presentacion(new Date(20, 04, 2017), lunaPark, luisAlberto)))
+	}
+	test "Luis Alberto toca con la Gibson. Como toca la Gibson como viene de fábrica, esta sana y su valor es 15 UG. Su habilidad es 100."{
+		luisAlberto.tocarCon(gibson)
+		assert.equals(100, luisAlberto.habilidad(new Presentacion(new Date(20, 04, 2017), lunaPark, luisAlberto)))
+	}
+	test "Luis alberto interpreta bien 'La Familia'"{
+		assert.that(luisAlberto.interpretaBien("La familia"))
+	}
+	test "Luis Alberto interpreta bien 'Cisne'"{
+		assert.that(luisAlberto.interpretaBien("Cisne"))
+	}
+	test "Luis Alberto hace una presentación en el Luna Park, cobra 1000 porque es antes de septiembre."{
+		assert.equals(1000, luisAlberto.cobra(new Presentacion(new Date(20, 04, 2017), lunaPark, #{luisAlberto})))
+	}
+	test "Luis Alberto hace una presentacion en La Trastienda, cobra 1200 porque es después de septiembre."{
+		assert.equals(1200, luisAlberto.cobra(new Presentacion(new Date(15, 11, 2017), trastienda, #{luisAlberto})))
+	}
+}

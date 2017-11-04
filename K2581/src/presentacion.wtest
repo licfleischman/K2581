@@ -1,0 +1,21 @@
+import musico.*
+import lugar.*
+import Presentacion.*
+
+describe "tests de presentaciones" {
+	var fechaLunaPark = new Date(20, 04, 2017)
+	var fechaTrastienda = new Date(15, 11, 2017)
+	
+	var presentacionLunaPark = new Presentacion(fechaLunaPark, lunaPark, #{ joaquin, lucia, luisAlberto })
+	var presentacionTrastienda = new Presentacion(fechaTrastienda, trastienda, #{joaquin, lucia, luisAlberto }) 
+	
+
+	test "el costo de la presentacion del LunaPark es 1550" {
+		assert.equals(1550, presentacionLunaPark.costo())
+	}
+
+	test "el costo de la presentacion de la Trastienda el (15/11/2017) es 1650" {
+		assert.equals(1650, presentacionTrastienda.costo())
+	}
+
+}

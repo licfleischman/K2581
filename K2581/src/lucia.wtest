@@ -1,0 +1,31 @@
+import musico.*
+import Presentacion.*
+import lugar.*
+import Cancion.*
+
+describe "lucia" {
+
+	test "Lucia canta el grupo pimpinela, queremos saber si su habilidad es 50" {
+		assert.equals(50, lucia.habilidad(new Presentacion(new Date(20, 04, 2017), lunaPark, #{
+		joaquin, lucia })))
+	}
+	test "Lucia canta solista, queremos saber si su habilidad es 70" {
+		assert.equals(70, lucia.habilidad(new Presentacion(new Date(20, 04, 2017), lunaPark, #{
+		lucia })))
+	}
+	test "Lucia interpreta bien la canción 'La Familia'." {
+		assert.that(lucia.interpretaBien(new Cancion(264, "Quiero brindar por mi gente sencilla, por el amor brindo por la familia.")))
+	}
+	test "Lucia no interpreta bien la canción 'Cisne'" {
+		assert.notThat(lucia.interpretaBien(new Cancion(312, "Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar.")))
+	}
+	test "Lucia por la presentación del LunaPark cobra 500" {
+		assert.equals(500, lucia.cobra(new Presentacion(new Date(20, 04, 2017), lunaPark, #{
+		luisAlberto, lucia, joaquin })))
+	}
+	test "Lucia por la presentación en la Trastiendo cobra 400" {
+		assert.equals(400, lucia.cobra(new Presentacion(new Date(15, 11, 2017), trastienda, #{
+		luisAlberto, lucia, joaquin })))
+	}
+
+}
