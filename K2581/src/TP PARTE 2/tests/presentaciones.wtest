@@ -5,8 +5,7 @@ import musico.*
 
 describe "tests presentaciones"{
 	
-	var joaquin = new MusicoDeGrupo('Pimpinela', 20, #{}, 5)
-	var lucia = new MusicoVocalista('Pimpinela', 70, #{}, 'familia' )
+
 	
 	var fechaTrastienda = new Date(15, 11, 2017)
 	var fechaLunaPark = new Date(20, 04, 2017)
